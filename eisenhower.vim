@@ -1,5 +1,5 @@
 " Set this to the directory that will contain the TODO list
-let s:todo_dir = ~/todo
+let s:todo_dir='~/todo/'
 
 
 function! SetStatusline()
@@ -31,19 +31,20 @@ function! Eisenhower()
 
   " Move to top left
   wincmd t
-  e ~/todo/urgent_and_important.md
+  "e ~/todo/urgent_and_important.md
+  execute 'edit ' s:todo_dir . 'urgent_and_important.md'
 
   " Move right
   wincmd l
-  e ~/todo/important_not_urgent.md
+  execute 'edit ' s:todo_dir . 'important_not_urgent.md'
 
   " Move to bottom right
   wincmd b
-  e ~/todo/not_important_not_urgent.md
+  execute 'edit ' s:todo_dir . 'not_important_not_urgent.md'
 
   " Move Left
   wincmd h
-  e ~/todo/urgent_not_important.md
+  execute 'edit ' s:todo_dir . 'urgent_not_important.md'
 
   set statusline=%{SetStatusline()}
 endfunction
